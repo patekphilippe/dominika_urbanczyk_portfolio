@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'tokens' as t;
+
+// Apply a type token by name. Usage: `@include type(hero);`
+@mixin type($name) {
+  $val: map.get(t.$type, $name);
+  @if $val == null {
+    @error "Unknown type token: #{$name}";
+  }
+  $size: list.nth($val, 1);
+  $lh:   list.nth($val, 2);
+  $ls:   list.nth($val, 3);
+  $fw:   list.nth($val, 4);
+
+  font-family: t.$font-sans;
+  font-size: $size;
+  line-height: $lh;
+  letter-spacing: $ls;
+  font-weight: $fw;
+}
+
+// 4-column 1376px content grid: 341 | 4 | 341 | 4 | 341 | 4 | 341
+// Most layouts use the simpler 3-track derived form: narrow | wide(686) | narrow
+@mixin section-grid {
+  display: grid;
+  grid-template-columns: t.$col-narrow t.$col-wide t.$col-narrow;
+  gap: 4px;
+  width: t.$content-max;
+  margin-inline: auto;
+}
+
+@mixin section-padding-x {
+  padding-inline: t.$gutter;
+}

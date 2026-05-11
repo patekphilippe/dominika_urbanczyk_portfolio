@@ -1,0 +1,35 @@
+@use 'mixins' as m;
+@use 'tokens' as t;
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 4px;
+  border: t.$stroke-1 solid #d6d8da;
+  border-radius: 100px;
+  gap: 2px;
+}
+
+.btn {
+  height: 32px;
+  min-width: 40px;
+  padding: 0 12px;
+  border-radius: 100px;
+  @include m.type(label-large);
+  color: t.$color-on-light-quaternary;
+  transition: background 120ms ease, color 120ms ease;
+
+  &:hover {
+    color: t.$color-on-light-primary;
+  }
+}
+
+.active {
+  background: t.$color-on-light-primary;
+  color: t.$color-light-surface;
+
+  &:hover {
+    color: t.$color-light-surface;
+  }
+}

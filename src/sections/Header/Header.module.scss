@@ -1,0 +1,60 @@
+@use 'mixins' as m;
+@use 'tokens' as t;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(t.$color-page-bg, 0.85);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+}
+
+.inner {
+  height: 86px;
+  padding: 19px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  height: 21.648px;
+  width: 189.162px;
+  color: t.$color-on-light-primary;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navItem {
+  @include m.type(title-medium-emph);
+  color: t.$color-on-light-primary;
+  white-space: nowrap;
+
+  &:hover {
+    color: t.$color-on-light-tertiary;
+  }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 10px 16px;
+  border: t.$stroke-1 solid #d6d8da;
+  border-radius: 100px;
+  @include m.type(label-large);
+  color: t.$color-on-light-primary;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}

@@ -1,0 +1,58 @@
+@use "mixins" as m;
+@use "tokens" as t;
+
+.section {
+  background: t.$color-page-bg;
+  padding: 144px 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 144px;
+}
+
+.row {
+  width: 1376px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: t.$col-narrow t.$col-wide t.$col-narrow;
+  gap: 4px;
+  align-items: start;
+}
+
+.headlineWrap {
+  display: flex;
+  align-items: center;
+  width: t.$col-wide;
+}
+
+.headline {
+  @include m.type(hero);
+  color: t.$color-on-light-primary;
+  font-size: 104px;
+  line-height: normal;
+}
+
+.aside {
+  @include m.type(body-medium);
+  color: t.$color-on-light-tertiary;
+  padding-inline: 32px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: t.$col-wide;
+}
+
+.lead {
+  @include m.type(display-medium);
+  color: t.$color-on-light-primary;
+}
+
+.note {
+  font-family: "Roboto", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: t.$color-on-light-secondary;
+}

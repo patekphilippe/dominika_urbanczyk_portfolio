@@ -1,0 +1,102 @@
+@use "mixins" as m;
+@use "tokens" as t;
+
+.hero {
+  padding: 0 4px;
+  background: t.$color-page-bg;
+}
+
+.card {
+  position: relative;
+  height: 835px;
+  width: 1432px;
+  margin: 0 auto;
+  background: t.$color-dark-card;
+  border-radius: t.$radius-xl;
+  overflow: hidden;
+  padding: 145px 32px 32px 32px;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 341px;
+  padding-right: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.tab {
+  @include m.type(title-medium);
+  white-space: nowrap;
+}
+
+.tabActive {
+  color: t.$color-on-dark-primary;
+}
+
+.tabDisabled {
+  color: t.$color-on-dark-quaternary;
+}
+
+.headline {
+  @include m.type(hero);
+  color: t.$color-on-dark-primary;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: t.$color-accent;
+}
+
+.statusText {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: t.$color-on-dark-primary;
+}
+
+.role {
+  @include m.type(headline-small-emph);
+  color: t.$color-on-dark-primary;
+  align-self: flex-start;
+}

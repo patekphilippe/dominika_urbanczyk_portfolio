@@ -1,0 +1,81 @@
+// Design tokens — sourced from Figma "Portfolio: D–U" variable collection.
+// Use as `@use '@/styles/tokens' as t;` then `t.$color-accent`.
+
+// — Colors ————————————————————————————————————
+$color-accent: #d2ff37;
+
+$color-page-bg: #f6f6f6;
+$color-footer-bg: #f5f5f5;
+
+$color-dark-bg: #161616;
+$color-dark-surface: #090909;
+$color-dark-card: #131312; // hero card bg
+$color-dark-outline: #464749;
+
+$color-on-dark-primary: #ffffff;
+$color-on-dark-secondary: #e7e8ea;
+$color-on-dark-tertiary: #d6d8da;
+$color-on-dark-quaternary: #b7b8bb;
+
+$color-light-surface: #ffffff;
+$color-on-light-primary: #090909;
+$color-on-light-secondary: #27272c;
+$color-on-light-tertiary: #464749;
+$color-on-light-quaternary: #78797b;
+
+$color-icon-more: #b7b8bb;
+$color-icon-score: #fb9826;
+
+// — Layout ————————————————————————————————————
+$canvas-width: 1440px;
+$content-max: 1376px; // 1440 minus 32px gutter each side
+$gutter: 32px;
+$col-narrow: 341px;
+$col-wide: 686px;
+$col-text: 686px;
+
+// — Radius ————————————————————————————————————
+$radius-xl: 28px;
+
+// — Stroke ————————————————————————————————————
+$stroke-1: 1px;
+
+// — Type ————————————————————————————————————
+// Family
+$font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+// Weights
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+
+// M3 / portfolio scale (size / line-height / tracking)
+$type: (
+  display-large:    (57px, 64px, -0.25px, $fw-semibold),
+  display-large-emph: (57px, 64px, -0.25px, $fw-semibold),
+  display-medium:   (45px, 52px, 0,       $fw-semibold),
+  display-medium-emph: (45px, 52px, 0,    $fw-semibold),
+  display-small:    (36px, 44px, 0,       $fw-semibold),
+  display-small-emph: (36px, 44px, 0,     $fw-semibold),
+  headline-large:   (32px, 40px, 0,       $fw-semibold),
+  headline-large-emph: (32px, 40px, 0,    $fw-semibold),
+  headline-medium:  (28px, 36px, 0,       $fw-regular),
+  headline-medium-emph: (28px, 36px, 0,   $fw-semibold),
+  headline-small:   (24px, 32px, 0,       $fw-regular),
+  headline-small-emph: (24px, 32px, 0,    $fw-semibold),
+  title-large:      (22px, 28px, 0,       $fw-semibold),
+  title-large-emph: (22px, 28px, 0,       $fw-semibold),
+  title-medium:     (16px, 24px, 0.15px,  $fw-medium),
+  title-medium-emph:(16px, 24px, 0.15px,  $fw-semibold),
+  title-small:      (14px, 20px, 0.1px,   $fw-medium),
+  body-large:       (16px, 24px, 0.5px,   $fw-regular),
+  body-medium:      (14px, 20px, 0.25px,  $fw-regular),
+  body-medium-emph: (14px, 20px, 0.25px,  $fw-semibold),
+  body-small:       (12px, 16px, 0.4px,   $fw-regular),
+  body-small-emph:  (12px, 16px, 0.4px,   $fw-semibold),
+  label-large:      (14px, 20px, 0.1px,   $fw-medium),
+  label-medium:     (12px, 16px, 0.5px,   $fw-medium),
+  label-small:      (11px, 16px, 0.5px,   $fw-medium),
+  // The hero headline — custom token from Figma "header/Header-section-main"
+  hero:             (104px, 100px, -5px,  $fw-semibold),
+);

@@ -1,0 +1,35 @@
+@use 'mixins' as m;
+@use 'tokens' as t;
+
+.section {
+  background: t.$color-page-bg;
+  padding: 257px 32px;
+}
+
+.row {
+  width: 1376px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: t.$col-narrow 1fr;
+  gap: 4px;
+  align-items: start;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.line {
+  @include m.type(hero);
+  white-space: nowrap;
+}
+
+.dark {
+  color: t.$color-on-light-primary;
+}
+
+.muted {
+  color: t.$color-on-light-quaternary;
+}
