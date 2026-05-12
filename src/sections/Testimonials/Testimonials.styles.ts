@@ -50,7 +50,7 @@ export const asteriskAside: S = {
 };
 
 export const grid: S = {
-  width: 1368,
+  width: `${layout.contentMax}px`,
   margin: "0 auto",
   display: "grid",
   gridTemplateColumns: `repeat(4, ${layout.colNarrow}px)`,

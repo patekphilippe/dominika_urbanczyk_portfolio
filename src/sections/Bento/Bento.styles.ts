@@ -14,7 +14,7 @@ export const grid: S = {
   gridTemplateColumns: "1fr 1fr",
   gap: "4px",
   height: 600,
-  maxWidth: 1520,
+  width: 1368,
   margin: "0 auto",
 };
 

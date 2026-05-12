@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import SplitText from "@/components/SplitText";
 import { useT } from "@/i18n";
 import * as s from "./Bento.styles";
+import CountUp from "@/components/CountUp";
 
 export default function Bento() {
   const t = useT();
@@ -57,7 +58,16 @@ export default function Bento() {
             {b.stats.map((stat) => (
               <Box sx={s.stat} key={stat.value}>
                 <Box component="span" sx={s.statValue}>
-                  {stat.value}
+                  <CountUp
+                    from={0}
+                    to={Number(stat.value)}
+                    separator=","
+                    direction="up"
+                    duration={0.3}
+                    className="count-up-text"
+                    delay={0}
+                  />
+                  %
                 </Box>
                 <Box component="span" sx={s.statLabel}>
                   {stat.label}

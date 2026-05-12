@@ -13,7 +13,7 @@ export const row: S = {
   width: `${layout.contentMax}px`,
   margin: "0 auto",
   display: "grid",
-  gridTemplateColumns: `${layout.colNarrow}px 1fr`,
+  gridTemplateColumns: `${layout.colNarrow}px 785px 1fr`,
   gap: "4px",
   alignItems: "start",
 };

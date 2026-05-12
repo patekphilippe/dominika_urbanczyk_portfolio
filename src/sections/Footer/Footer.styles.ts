@@ -8,10 +8,20 @@ export const footer: S = {
   background: colors.footerBg,
   display: "flex",
   flexDirection: "column",
+  position: "relative",
+};
+
+export const contentWrap: S = {
+  position: "relative",
+  zIndex: 1,
+};
+
+export const contentInner: S = {
+  position: "relative",
+  zIndex: 1,
 };
 
 export const top: S = {
-  background: colors.footerBg,
   padding: "100px 32px 200px",
   display: "flex",
   justifyContent: "center",
@@ -73,4 +83,11 @@ export const bottom: S = {
     color: colors.onLightQuaternary,
     whiteSpace: "nowrap",
   },
+};
+
+export const imageTrailWrap: S = {
+  position: "absolute",
+  inset: 0,
+  zIndex: 0,
+  pointerEvents: "none",
 };

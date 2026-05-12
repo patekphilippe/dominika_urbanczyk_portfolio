@@ -28,7 +28,7 @@ export const bg: S = {
   zIndex: 0,
   backgroundImage: "url(/images/hero-portrait.png)",
   backgroundSize: "cover",
-  backgroundPosition: "center",
+  backgroundPosition: "-27vw 50%",
   backgroundRepeat: "no-repeat",
 };
 

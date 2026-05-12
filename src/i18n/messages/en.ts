@@ -23,8 +23,7 @@ export const en: Messages = {
       eyebrow: "UX Design Lead",
       company: "Telewizja Polska S.A.",
       period: "2021–current",
-      lead:
-        "One of the largest media organisations in Poland. Shifting priorities, many stakeholders, zero stable process. I joined as a designer; a year later I was leading the team — balancing the business, users, and what we could realistically deliver.",
+      lead: "One of the largest media organisations in Poland. Shifting priorities, many stakeholders, zero stable process. I joined as a designer; a year later I was leading the team — balancing the business, users, and what we could realistically deliver.",
       note: "Over three years the team supported a broad portfolio of digital products — from the VOD platform, through sports services, to brand-new product concepts.",
     },
   },
@@ -47,7 +46,13 @@ export const en: Messages = {
         "Recruiting and onboarding new designers — from the hiring process through onboarding to day-to-day support.",
       ],
       focusLabel: "Focus",
-      tags: ["Team 10+", "Recruitment", "Onboarding", "Prioritisation", "Coordination"],
+      tags: [
+        "Team 10+",
+        "Recruitment",
+        "Onboarding",
+        "Prioritisation",
+        "Coordination",
+      ],
     },
     collapsed: [
       { id: "02", title: "Product & Design" },
@@ -71,8 +76,8 @@ export const en: Messages = {
     intro:
       "Redesign of a logistics company’s operating system. From a survey of 53 users to a production rollout.",
     stats: [
-      { value: "40%", label: "faster to create an order" },
-      { value: "50%", label: "fewer steps in the invoice process" },
+      { value: "40", label: "faster to create an order" },
+      { value: "50", label: "fewer steps in the invoice process" },
     ],
     quote:
       "“...it turned out a forwarder creates an order 40% faster in the new OS 2.0 vs OS 1.0. Brawo us...”",
@@ -116,7 +121,8 @@ export const en: Messages = {
     asideText: " theirs",
     score: {
       labels: ["Trainer’s expertise", "Connection with the group"],
-      ratingQuestion: "*What would you suggest the trainer\ncould do to improve this?",
+      ratingQuestion:
+        "*What would you suggest the trainer\ncould do to improve this?",
       quote: "“I have no notes for the trainer, it was outstanding...”",
       author: "Training participant — NobleProg",
       source: "*Ratings and comments from evaluation surveys",
@@ -124,7 +130,8 @@ export const en: Messages = {
     studentCircle: {
       quote:
         "“...it was amazing! In three hours we went through the entire 5-step process, learned techniques, tools, and skills — personas, empathy maps, value proposition canvas. Thank you so much for that wonderful time...”",
-      source: "UX & Information Architecture Student Circle — University of Warsaw",
+      source:
+        "UX & Information Architecture Student Circle — University of Warsaw",
     },
     linkedinBig: {
       quote:
