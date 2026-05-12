@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import TitleSection from "@/components/TitleSection";
 import { useT } from "@/i18n";
-import styles from "./Workshops.module.scss";
+import * as s from "./Workshops.styles";
 
-// Logos are static assets and don't translate; kept alongside the card index.
 const logosByCard: { src: string; alt: string }[][] = [
   [
     { src: "/images/logo-uw.png", alt: "Uniwersytet Warszawski" },
@@ -27,41 +27,46 @@ const logosByCard: { src: string; alt: string }[][] = [
 export default function Workshops() {
   const t = useT();
   return (
-    <section className={styles.section}>
-      <div className={styles.top}>
+    <Box component="section" sx={s.section}>
+      <Box sx={s.top}>
         <TitleSection label={t.workshops.eyebrow} />
-        <p className={styles.lead}>{t.workshops.lead}</p>
-      </div>
+        <Typography component="p" sx={s.lead}>
+          {t.workshops.lead}
+        </Typography>
+      </Box>
 
-      <div className={styles.body}>
-        <p className={styles.intro}>{t.workshops.intro}</p>
+      <Box sx={s.body}>
+        <Typography component="p" sx={s.intro}>
+          {t.workshops.intro}
+        </Typography>
 
-        <div className={styles.cards}>
+        <Box sx={s.cards}>
           {t.workshops.cards.map((c, i) => (
-            <article className={styles.card} key={c.title}>
-              <header className={styles.cardHeader}>
-                <h3 className={styles.cardTitle}>{c.title}</h3>
-              </header>
-              <div className={styles.cardBody}>
-                <p className={styles.cardText}>{c.body}</p>
-                <div className={styles.logos}>
+            <Box component="article" sx={s.card} key={c.title}>
+              <Box component="header" sx={s.cardHeader}>
+                <Typography component="h3" sx={s.cardTitle}>
+                  {c.title}
+                </Typography>
+              </Box>
+              <Box sx={s.cardBody}>
+                <Typography component="p" sx={s.cardText}>
+                  {c.body}
+                </Typography>
+                <Box sx={s.logos}>
                   {logosByCard[i].map((l) => (
-                    <div className={styles.logo} key={l.alt}>
-                      <Image
-                        src={l.src}
-                        alt={l.alt}
-                        width={60}
-                        height={32}
-                        className={styles.logoImg}
-                      />
-                    </div>
+                    <Box
+                      key={l.alt}
+                      role="img"
+                      aria-label={l.alt}
+                      sx={[s.logo, { backgroundImage: `url(${l.src})` }]}
+                    />
                   ))}
-                </div>
-              </div>
-            </article>
+                </Box>
+              </Box>
+            </Box>
           ))}
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 }

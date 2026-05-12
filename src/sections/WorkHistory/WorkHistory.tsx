@@ -1,33 +1,45 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import SplitText from "@/components/SplitText";
 import TitleSection from "@/components/TitleSection";
 import { useT } from "@/i18n";
-import styles from "./WorkHistory.module.scss";
+import * as s from "./WorkHistory.styles";
 
 export default function WorkHistory() {
   const t = useT();
   return (
-    <section className={styles.section} id="experience">
-      <div className={styles.row}>
+    <Box component="section" id="experience" sx={s.section}>
+      <Box sx={s.row}>
         <TitleSection label={t.workHistory.eyebrow} />
-        <div className={styles.headlineWrap}>
-          <h2 className={styles.headline}>
-            {t.workHistory.headline.line1}
-            <br />
-            {t.workHistory.headline.line2}
-          </h2>
-        </div>
-        <p className={styles.aside}>{t.workHistory.aside}</p>
-      </div>
+        <Box sx={s.headlineWrap}>
+          <SplitText
+            tag="h2"
+            text={`${t.workHistory.headline.line1}\n${t.workHistory.headline.line2}`}
+            style={{
+              ...(s.headline as React.CSSProperties),
+              whiteSpace: "pre-line",
+            }}
+          />
+        </Box>
+        <Typography component="p" sx={s.aside}>
+          {t.workHistory.aside}
+        </Typography>
+      </Box>
 
-      <div className={styles.row}>
+      <Box sx={s.row}>
         <TitleSection
           label={t.workHistory.work.eyebrow}
           secondary={`${t.workHistory.work.company}\n${t.workHistory.work.period}`}
         />
-        <div className={styles.body}>
-          <p className={styles.lead}>{t.workHistory.work.lead}</p>
-          <p className={styles.note}>{t.workHistory.work.note}</p>
-        </div>
-      </div>
-    </section>
+        <Box sx={s.body}>
+          <Typography component="p" sx={s.lead}>
+            {t.workHistory.work.lead}
+          </Typography>
+          <Typography component="p" sx={s.note}>
+            {t.workHistory.work.note}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
   );
 }

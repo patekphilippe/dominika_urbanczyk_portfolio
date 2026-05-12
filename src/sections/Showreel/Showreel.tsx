@@ -1,37 +1,37 @@
-import Image from "next/image";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useT } from "@/i18n";
-import styles from "./Showreel.module.scss";
+import * as s from "./Showreel.styles";
 
 export default function Showreel() {
   const t = useT();
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <div className={styles.stats}>
-          {t.showreel.stats.map((s) => (
-            <div className={styles.card} key={s.index}>
-              <div className={styles.cardLeft}>
-                <div className={styles.numberRow}>
-                  <span className={styles.number}>{s.number}</span>
-                  <span className={styles.plus}>{s.plus}</span>
-                </div>
-                <p className={styles.label}>{s.label}</p>
-              </div>
-              <span className={styles.idx}>{s.index}</span>
-            </div>
+    <Box component="section" sx={s.section}>
+      <Box sx={s.inner}>
+        <Box sx={s.stats}>
+          {t.showreel.stats.map((stat) => (
+            <Box sx={s.card} key={stat.index}>
+              <Box sx={s.cardLeft}>
+                <Box sx={s.numberRow}>
+                  <Box component="span" sx={s.number}>
+                    {stat.number}
+                  </Box>
+                  <Box component="span" sx={s.plus}>
+                    {stat.plus}
+                  </Box>
+                </Box>
+                <Typography component="p" sx={s.label}>
+                  {stat.label}
+                </Typography>
+              </Box>
+              <Box component="span" sx={s.idx}>
+                {stat.index}
+              </Box>
+            </Box>
           ))}
-        </div>
-        <div className={styles.imageWrap}>
-          <Image
-            className={styles.image}
-            src="/images/showreel.jpg"
-            alt="Showreel"
-            width={1376}
-            height={849}
-            priority
-          />
-        </div>
-      </div>
-    </section>
+        </Box>
+        <Box sx={s.imageWrap} role="img" aria-label="Showreel" />
+      </Box>
+    </Box>
   );
 }

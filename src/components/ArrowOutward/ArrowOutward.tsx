@@ -1,14 +1,16 @@
-type Props = { size?: number; className?: string };
+import SvgIcon, { type SvgIconProps } from "@mui/material/SvgIcon";
 
-export default function ArrowOutward({ size = 24, className }: Props) {
+type Props = Omit<SvgIconProps, "fontSize"> & {
+  size?: number;
+};
+
+export default function ArrowOutward({ size = 24, sx, ...props }: Props) {
   return (
-    <svg
-      className={className}
-      width={size}
-      height={size}
+    <SvgIcon
       viewBox="0 0 24 24"
-      fill="none"
       aria-hidden
+      {...props}
+      sx={{ width: size, height: size, fill: "none", ...sx }}
     >
       <path
         d="M7 17L17 7M17 7H8M17 7V16"
@@ -17,6 +19,6 @@ export default function ArrowOutward({ size = 24, className }: Props) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </svg>
+    </SvgIcon>
   );
 }

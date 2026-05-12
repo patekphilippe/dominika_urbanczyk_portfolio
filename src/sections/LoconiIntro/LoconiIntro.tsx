@@ -1,18 +1,27 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import TitleSection from "@/components/TitleSection";
 import { useT } from "@/i18n";
-import styles from "./LoconiIntro.module.scss";
+import * as s from "./LoconiIntro.styles";
 
 export default function LoconiIntro() {
   const t = useT();
   return (
-    <section className={styles.section}>
-      <div className={styles.row}>
-        <TitleSection label={t.loconiIntro.eyebrow} secondary={t.loconiIntro.secondary} />
-        <div className={styles.body}>
-          <p className={styles.lead}>{t.loconiIntro.lead}</p>
-          <p className={styles.note}>{t.loconiIntro.note}</p>
-        </div>
-      </div>
-    </section>
+    <Box component="section" sx={s.section}>
+      <Box sx={s.row}>
+        <TitleSection
+          label={t.loconiIntro.eyebrow}
+          secondary={t.loconiIntro.secondary}
+        />
+        <Box sx={s.body}>
+          <Typography component="p" sx={s.lead}>
+            {t.loconiIntro.lead}
+          </Typography>
+          <Typography component="p" sx={s.note}>
+            {t.loconiIntro.note}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
   );
 }

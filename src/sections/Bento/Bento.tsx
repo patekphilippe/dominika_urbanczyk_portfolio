@@ -1,59 +1,80 @@
-import Image from "next/image";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import SplitText from "@/components/SplitText";
 import { useT } from "@/i18n";
-import styles from "./Bento.module.scss";
+import * as s from "./Bento.styles";
 
 export default function Bento() {
   const t = useT();
   const b = t.bento;
   return (
-    <section className={styles.section}>
-      <div className={styles.grid}>
-        <article className={styles.left}>
-          <Image
-            className={styles.bg}
-            src="/images/bento-loconi.jpg"
-            alt=""
-            fill
-            sizes="682px"
-          />
-          <div className={styles.overlay} aria-hidden />
-          <div className={styles.leftContent}>
-            <div className={styles.metaTop}>
-              <div>
-                <p className={styles.tagLabel}>{b.caseStudyLabel}</p>
-                <p className={styles.tagDetail}>{b.caseStudyDetail}</p>
-              </div>
-              <div className={styles.role}>
-                <p className={styles.roleLabel}>{b.roleLabel}</p>
-                <p className={styles.roleValue}>{b.roleValue}</p>
-              </div>
-            </div>
-            <h3 className={styles.title}>{b.title}</h3>
-            <div className={styles.bottom}>
-              <a className={styles.cta} href="#loconi">
+    <Box component="section" sx={s.section}>
+      <Box sx={s.grid}>
+        <Box component="article" sx={s.left}>
+          <Box sx={s.bg} aria-hidden />
+          <Box sx={s.overlay} aria-hidden />
+          <Box sx={s.leftContent}>
+            <Box sx={s.metaTop}>
+              <Box>
+                <Typography component="p" sx={s.tagLabel}>
+                  {b.caseStudyLabel}
+                </Typography>
+                <Typography component="p" sx={s.tagDetail}>
+                  {b.caseStudyDetail}
+                </Typography>
+              </Box>
+              <Box sx={s.role}>
+                <Typography component="p" sx={s.roleLabel}>
+                  {b.roleLabel}
+                </Typography>
+                <Typography component="p" sx={s.roleValue}>
+                  {b.roleValue}
+                </Typography>
+              </Box>
+            </Box>
+            <SplitText
+              tag="h3"
+              text={b.title}
+              style={s.title as React.CSSProperties}
+            />
+            <Box sx={s.bottom}>
+              <Link href="#loconi" sx={s.cta}>
                 {b.cta}
-              </a>
-              <span className={styles.year}>{b.year}</span>
-            </div>
-          </div>
-        </article>
+              </Link>
+              <Box component="span" sx={s.year}>
+                {b.year}
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
-        <article className={styles.right}>
-          <p className={styles.intro}>{b.intro}</p>
-          <div className={styles.stats}>
-            {b.stats.map((s) => (
-              <div className={styles.stat} key={s.value}>
-                <span className={styles.statValue}>{s.value}</span>
-                <span className={styles.statLabel}>{s.label}</span>
-              </div>
+        <Box component="article" sx={s.right}>
+          <Typography component="p" sx={s.intro}>
+            {b.intro}
+          </Typography>
+          <Box sx={s.stats}>
+            {b.stats.map((stat) => (
+              <Box sx={s.stat} key={stat.value}>
+                <Box component="span" sx={s.statValue}>
+                  {stat.value}
+                </Box>
+                <Box component="span" sx={s.statLabel}>
+                  {stat.label}
+                </Box>
+              </Box>
             ))}
-          </div>
-          <div className={styles.quoteBlock}>
-            <p className={styles.quote}>{b.quote}</p>
-            <p className={styles.author}>{b.author}</p>
-          </div>
-        </article>
-      </div>
-    </section>
+          </Box>
+          <Box sx={s.quoteBlock}>
+            <Typography component="p" sx={s.quote}>
+              {b.quote}
+            </Typography>
+            <Typography component="p" sx={s.author}>
+              {b.author}
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

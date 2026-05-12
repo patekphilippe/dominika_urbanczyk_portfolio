@@ -1,8 +1,12 @@
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
+import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 import GradualBlur from "@/components/GradualBlur";
 import { LocaleProvider } from "@/i18n";
+import theme from "@/theme/theme";
 import "@/styles/globals.scss";
 
 const inter = Inter({
@@ -11,9 +15,10 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App(props: AppProps) {
+  const { Component, pageProps } = props;
   return (
-    <>
+    <AppCacheProvider {...props}>
       <Head>
         <title>Dominika Urbańczyk — UX Design Lead & Educator</title>
         <meta
@@ -23,26 +28,29 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=1440" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <LocaleProvider>
-        <div
-          className={inter.variable}
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          <Component {...pageProps} />
-        </div>
-      </LocaleProvider>
-      <GradualBlur
-        target="page"
-        position="bottom"
-        height="4rem"
-        strength={1.5}
-        divCount={2}
-        curve="bezier"
-        exponential
-        opacity={1}
-        fadeAtBottom
-        fadeAtTop
-      />
-    </>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <LocaleProvider>
+          <div
+            className={inter.variable}
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            <Component {...pageProps} />
+          </div>
+        </LocaleProvider>
+        <GradualBlur
+          target="page"
+          position="bottom"
+          height="4rem"
+          strength={1.5}
+          divCount={2}
+          curve="bezier"
+          exponential
+          opacity={1}
+          fadeAtBottom
+          fadeAtTop
+        />
+      </ThemeProvider>
+    </AppCacheProvider>
   );
 }

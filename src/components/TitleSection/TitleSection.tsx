@@ -1,28 +1,29 @@
-import styles from "./TitleSection.module.scss";
+import Box from "@mui/material/Box";
+import { Fragment } from "react";
+import * as s from "./TitleSection.styles";
 
 type Props = {
-  /** Eyebrow text. */
   label: string;
-  /** Optional secondary line below (e.g. "Loconi", "Selected work"). */
   secondary?: string;
-  /** When the section is on a dark background. */
   onDark?: boolean;
 };
 
 export default function TitleSection({ label, secondary, onDark }: Props) {
   return (
-    <div className={`${styles.title} ${onDark ? styles.dark : ""}`}>
-      <span className={styles.label}>{label}</span>
+    <Box sx={s.titleRoot}>
+      <Box component="span" sx={onDark ? s.labelDark : s.label}>
+        {label}
+      </Box>
       {secondary && (
-        <span className={styles.secondary}>
+        <Box component="span" sx={onDark ? s.secondaryDark : s.secondary}>
           {secondary.split("\n").map((line, i, arr) => (
-            <span key={i}>
+            <Fragment key={i}>
               {line}
               {i < arr.length - 1 && <br />}
-            </span>
+            </Fragment>
           ))}
-        </span>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 }

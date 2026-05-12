@@ -1,30 +1,38 @@
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import ArrowOutward from "@/components/ArrowOutward";
+import SplitText from "@/components/SplitText";
 import { useT } from "@/i18n";
-import styles from "./Footer.module.scss";
+import * as s from "./Footer.styles";
 
 export default function Footer() {
   const t = useT();
   return (
-    <footer className={styles.footer} id="contact">
-      <div className={styles.top}>
-        <div className={styles.links}>
-          <div className={styles.col1}>
-            <a href={`mailto:${t.footer.email}`} className={styles.email}>
+    <Box component="footer" id="contact" sx={s.footer}>
+      <Box sx={s.top}>
+        <Box sx={s.links}>
+          <Box sx={s.col1}>
+            <Link href={`mailto:${t.footer.email}`} sx={s.email}>
               {t.footer.email}
-            </a>
-          </div>
-          <div className={styles.col2}>
-            <a className={styles.linkedin} href="#" aria-label={t.footer.linkedinLabel}>
-              <span>{t.footer.linkedinLabel}</span>
+            </Link>
+          </Box>
+          <Box sx={s.col2}>
+            <Link href="#" aria-label={t.footer.linkedinLabel} sx={s.linkedin}>
+              <Box component="span">{t.footer.linkedinLabel}</Box>
               <ArrowOutward size={24} />
-            </a>
-            <p className={styles.signoff}>{t.footer.signoff}</p>
-          </div>
-        </div>
-      </div>
-      <div className={styles.bottom}>
-        <p>{t.footer.copyright}</p>
-      </div>
-    </footer>
+            </Link>
+            <SplitText
+              tag="p"
+              text={t.footer.signoff}
+              style={s.signoff as React.CSSProperties}
+            />
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={s.bottom}>
+        <Typography component="p">{t.footer.copyright}</Typography>
+      </Box>
+    </Box>
   );
 }

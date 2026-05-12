@@ -1,98 +1,124 @@
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import ArrowOutward from "@/components/ArrowOutward";
+import SplitText from "@/components/SplitText";
 import TitleSection from "@/components/TitleSection";
 import { useT } from "@/i18n";
-import styles from "./Testimonials.module.scss";
+import * as s from "./Testimonials.styles";
 
 export default function Testimonials() {
   const t = useT();
   const tt = t.testimonials;
   return (
-    <section className={styles.section}>
-      <div className={styles.card}>
-        <div className={styles.top}>
+    <Box component="section" sx={s.section}>
+      <Box sx={s.card}>
+        <Box sx={s.top}>
           <TitleSection label={tt.eyebrow} onDark />
-          <h2 className={styles.headline}>
-            {tt.headlineMain}
-            <span className={styles.asterisk}>{tt.headlineAsterisk}</span>
-          </h2>
-          <p className={styles.aside}>
-            <span className={styles.asteriskAside}>{tt.asideAsterisk}</span>
+          <Box component="h2" sx={s.headline}>
+            <SplitText tag="span" text={tt.headlineMain} />
+            <SplitText
+              tag="span"
+              text={tt.headlineAsterisk}
+              style={s.asterisk as React.CSSProperties}
+            />
+          </Box>
+          <Typography component="p" sx={s.aside}>
+            <Box component="span" sx={s.asteriskAside}>
+              {tt.asideAsterisk}
+            </Box>
             {tt.asideText}
-          </p>
-        </div>
+          </Typography>
+        </Box>
 
-        <div className={styles.grid}>
-          {/* Score card */}
-          <article className={`${styles.card2} ${styles.scoreCard}`}>
-            <div className={styles.scoreTop}>
-              <div className={styles.scoreNumWrap}>
-                <span className={styles.bigNum}>6</span>
-                <span className={styles.starMark}>*</span>
-                <span className={styles.outOf}>/6</span>
-              </div>
-              <ul className={styles.scoreLabels}>
+        <Box sx={s.grid}>
+          <Box component="article" sx={[s.card2, s.scoreCard]}>
+            <Box sx={s.scoreTop}>
+              <Box sx={s.scoreNumWrap}>
+                <Box component="span" sx={s.bigNum}>
+                  6
+                </Box>
+                <Box component="span" sx={s.starMark}>
+                  *
+                </Box>
+                <Box component="span" sx={s.outOf}>
+                  /6
+                </Box>
+              </Box>
+              <Box component="ul" sx={s.scoreLabels}>
                 {tt.score.labels.map((l) => (
                   <li key={l}>{l}</li>
                 ))}
-              </ul>
-            </div>
-            <div className={styles.scoreBottom}>
-              <p className={styles.scoreLabel} style={{ whiteSpace: "pre-line" }}>
+              </Box>
+            </Box>
+            <Box sx={s.scoreBottom}>
+              <Typography component="p" sx={s.scoreLabel}>
                 {tt.score.ratingQuestion}
-              </p>
-              <p className={styles.scoreQuote}>{tt.score.quote}</p>
-              <div>
-                <p className={styles.scoreAuthor}>{tt.score.author}</p>
-                <p className={styles.scoreSource}>{tt.score.source}</p>
-              </div>
-            </div>
-          </article>
+              </Typography>
+              <Typography component="p" sx={s.scoreQuote}>
+                {tt.score.quote}
+              </Typography>
+              <Box>
+                <Typography component="p" sx={s.scoreAuthor}>
+                  {tt.score.author}
+                </Typography>
+                <Typography component="p" sx={s.scoreSource}>
+                  {tt.score.source}
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
 
-          {/* Stacked pair */}
-          <div className={styles.stack}>
-            <article className={`${styles.card2} ${styles.smallCard}`}>
-              <p className={styles.smallQuote}>{tt.studentCircle.quote}</p>
-              <a className={styles.cardSource} href="#">
-                <span>{tt.studentCircle.source}</span>
+          <Box sx={s.stack}>
+            <Box component="article" sx={[s.card2, s.smallCard]}>
+              <Typography component="p" sx={s.smallQuote}>
+                {tt.studentCircle.quote}
+              </Typography>
+              <Link href="#" sx={s.cardSource}>
+                <Box component="span">{tt.studentCircle.source}</Box>
                 <ArrowOutward size={20} />
-              </a>
-            </article>
-            <article className={`${styles.card2} ${styles.smallCard}`}>
-              <p className={styles.bigQuote}>{tt.linkedinBig.quote}</p>
-              <a className={styles.cardSource} href="#">
-                <span>{tt.linkedinBig.source}</span>
+              </Link>
+            </Box>
+            <Box component="article" sx={[s.card2, s.smallCard]}>
+              <Typography component="p" sx={s.bigQuote}>
+                {tt.linkedinBig.quote}
+              </Typography>
+              <Link href="#" sx={s.cardSource}>
+                <Box component="span">{tt.linkedinBig.source}</Box>
                 <ArrowOutward size={20} />
-              </a>
-            </article>
-          </div>
+              </Link>
+            </Box>
+          </Box>
 
-          {/* Helion review card */}
-          <article className={`${styles.card2} ${styles.opinionCard}`}>
-            <a className={styles.cardSource} href="#">
-              <span>{tt.helion.source}</span>
+          <Box component="article" sx={[s.card2, s.opinionCard]}>
+            <Link href="#" sx={s.cardSource}>
+              <Box component="span">{tt.helion.source}</Box>
               <ArrowOutward size={20} />
-            </a>
-            <div className={styles.opinionBody}>
-              <div className={styles.stars} aria-label="6 of 6">
+            </Link>
+            <Box sx={s.opinionBody}>
+              <Box sx={s.stars} aria-label="6 of 6">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <Star key={i} />
                 ))}
-              </div>
-              <p className={styles.bigQuote}>{tt.helion.quote}</p>
-            </div>
-          </article>
+              </Box>
+              <Typography component="p" sx={s.bigQuote}>
+                {tt.helion.quote}
+              </Typography>
+            </Box>
+          </Box>
 
-          {/* HR card */}
-          <article className={`${styles.card2} ${styles.opinionCard}`}>
-            <p className={styles.bigQuote}>{tt.hrLinkedin.quote}</p>
-            <a className={styles.cardSource} href="#">
-              <span>{tt.hrLinkedin.source}</span>
+          <Box component="article" sx={[s.card2, s.opinionCard]}>
+            <Typography component="p" sx={s.bigQuote}>
+              {tt.hrLinkedin.quote}
+            </Typography>
+            <Link href="#" sx={s.cardSource}>
+              <Box component="span">{tt.hrLinkedin.source}</Box>
               <ArrowOutward size={20} />
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
+            </Link>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 

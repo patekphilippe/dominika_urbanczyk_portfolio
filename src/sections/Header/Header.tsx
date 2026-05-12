@@ -1,29 +1,29 @@
-import Image from "next/image";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { useT } from "@/i18n";
-import styles from "./Header.module.scss";
+import * as s from "./Header.styles";
 
 export default function Header() {
   const t = useT();
   return (
-    <header className={styles.header}>
-      <div className={styles.inner}>
-        <a className={styles.logo} href="#top" aria-label="Dominika Urbańczyk — home">
-          <Image src="/images/logo.svg" alt="dominikaurbańczyk" width={189} height={22} priority />
-        </a>
-        <nav className={styles.nav}>
-          <a className={styles.navItem} href="#experience">
+    <Box component="header" sx={s.header}>
+      <Box sx={s.inner}>
+        <Link href="#top" aria-label="Dominika Urbańczyk — home" sx={s.logo} />
+
+        <Box component="nav" sx={s.nav}>
+          <Link href="#experience" sx={s.navItem}>
             {t.header.experience}
-          </a>
-          <a className={styles.navItem} href="#contact">
+          </Link>
+          <Link href="#contact" sx={s.navItem}>
             {t.header.contact}
-          </a>
-          <a className={styles.cta} href="#cv">
+          </Link>
+          <Link href="#cv" sx={s.cta}>
             {t.header.getCv}
-          </a>
+          </Link>
           <LanguageSwitch />
-        </nav>
-      </div>
-    </header>
+        </Box>
+      </Box>
+    </Box>
   );
 }
