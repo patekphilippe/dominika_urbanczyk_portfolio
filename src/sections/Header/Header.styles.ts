@@ -25,7 +25,7 @@ export const inner: S = {
 export const logo: S = {
   display: "inline-block",
   height: "21.648px",
-  width: "189.162px",
+  width: "112.63px",
   color: colors.onLightPrimary,
   backgroundImage: "url(/images/logo.svg)",
   backgroundSize: "contain",

@@ -31,15 +31,14 @@ export type Messages = {
   theHow: {
     eyebrow: string;
     headline: string;
-    expanded: {
+    focusLabel: string;
+    items: Array<{
       id: string;
       title: string;
       lead: string;
       bullets: string[];
-      focusLabel: string;
       tags: string[];
-    };
-    collapsed: Array<{ id: string; title: string }>;
+    }>;
   };
   loconiIntro: {
     eyebrow: string;

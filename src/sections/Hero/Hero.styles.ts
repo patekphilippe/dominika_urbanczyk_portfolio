@@ -5,14 +5,14 @@ import { colors, fontFamily, radius, type } from "@/theme/tokens";
 type S = SystemStyleObject<Theme>;
 
 export const hero: S = {
-  padding: "0 4px",
+  padding: 0,
   background: colors.pageBg,
 };
 
 export const card: S = {
   position: "relative",
   height: 835,
-  width: 1432,
+  width: "100%",
   margin: "0 auto",
   background: colors.darkCard,
   borderRadius: `${radius.xl}px`,

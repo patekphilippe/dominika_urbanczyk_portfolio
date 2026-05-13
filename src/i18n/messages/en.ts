@@ -37,26 +37,50 @@ export const en: Messages = {
   theHow: {
     eyebrow: "My role",
     headline: "The how.",
-    expanded: {
-      id: "01",
-      title: "Leadership",
-      lead: "I joined an environment with no structured process — decisions shifted day to day. My job was to give the team stability and direction.",
-      bullets: [
-        "Coordinating design work across many parallel initiatives — prioritising tasks with limited room to reshape the project grids.",
-        "Recruiting and onboarding new designers — from the hiring process through onboarding to day-to-day support.",
-      ],
-      focusLabel: "Focus",
-      tags: [
-        "Team 10+",
-        "Recruitment",
-        "Onboarding",
-        "Prioritisation",
-        "Coordination",
-      ],
-    },
-    collapsed: [
-      { id: "02", title: "Product & Design" },
-      { id: "03", title: "Stakeholder collaboration & Design operations" },
+    focusLabel: "Focus",
+    items: [
+      {
+        id: "01",
+        title: "Leadership",
+        lead: "I joined an environment with no structured process — decisions shifted day to day. My job was to give the team stability and direction.",
+        bullets: [
+          "Coordinating design work across many parallel initiatives — prioritising tasks with limited room to reshape the project grids.",
+          "Recruiting and onboarding new designers — from the hiring process through onboarding to day-to-day support.",
+        ],
+        tags: [
+          "Team 10+",
+          "Recruitment",
+          "Onboarding",
+          "Prioritisation",
+          "Coordination",
+        ],
+      },
+      {
+        id: "02",
+        title: "Product & Design",
+        lead: "A new VOD platform, the World Cup, sports services — all at once, across many platforms. I coordinated design on TVP's core digital products.",
+        bullets: [
+          "TVP VOD across 5 platforms (web, iOS, Android, Smart TV, HbbTV) — from workshops and stakeholder meetings to delivery in ~4 months.",
+          "UX work for special services — World Cup 2022, the Euros, the TVP Sport concept, including discovery workshops.",
+        ],
+        tags: ["TVP VOD", "World Cup 2022", "TVP SPORT", "Discovery"],
+      },
+      {
+        id: "03",
+        title: "Stakeholder collaboration & Design operations",
+        lead: "The status quo: “build something, then we’ll talk.” My goal was to bridge business, product, and the UX team.",
+        bullets: [
+          "Supporting POs in shaping and validating requirements — so the UX team had solid foundations to build on.",
+          "Weekly UX-led education sessions for POs — heuristics, UX laws, design systems, and how digital products are built.",
+          "Acting as a bridge between POs, developers, business, and unit directors — overseeing the quality of requirements.",
+        ],
+        tags: [
+          "PO education",
+          "Product requirements",
+          "Process",
+          "Cross-functional",
+        ],
+      },
     ],
   },
   loconiIntro: {
@@ -115,7 +139,7 @@ export const en: Messages = {
   },
   testimonials: {
     eyebrow: "Proof",
-    headlineMain: "Not my words.",
+    headlineMain: "Not my\nwords.",
     headlineAsterisk: "*",
     asideAsterisk: "*",
     asideText: " theirs",

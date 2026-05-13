@@ -6,7 +6,7 @@ type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "144px 4px 0",
+  padding: "144px 0 0",
 };
 
 export const card: S = {
@@ -47,6 +47,41 @@ export const expanded: S = {
   paddingTop: "32px",
   paddingBottom: "56px",
   borderBottom: `${stroke.s1} solid ${colors.darkOutline}`,
+};
+
+export const itemRow: S = {
+  display: "flex",
+  flexDirection: "column",
+  paddingTop: "32px",
+  paddingBottom: "20px",
+  borderBottom: `${stroke.s1} solid ${colors.darkOutline}`,
+};
+
+export const itemHeader: S = {
+  display: "grid",
+  gridTemplateColumns: `${layout.colNarrow}px 1fr 48px`,
+  gap: "4px",
+  alignItems: "center",
+};
+
+export const itemHeading: S = {
+  display: "flex",
+  alignItems: "center",
+  minHeight: 48,
+};
+
+export const itemDetails: S = {
+  display: "grid",
+  gridTemplateColumns: `${layout.colNarrow}px 1fr 336px 48px`,
+  gap: "4px",
+  paddingTop: "16px",
+  paddingBottom: "36px",
+  "& > :first-of-type": {
+    gridColumn: "2",
+  },
+  "& > :nth-of-type(2)": {
+    gridColumn: "3",
+  },
 };
 
 export const id: S = {

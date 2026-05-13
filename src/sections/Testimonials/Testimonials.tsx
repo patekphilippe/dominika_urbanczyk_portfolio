@@ -16,7 +16,11 @@ export default function Testimonials() {
         <Box sx={s.top}>
           <TitleSection label={tt.eyebrow} onDark />
           <Box component="h2" sx={s.headline}>
-            <SplitText tag="span" text={tt.headlineMain} />
+            <SplitText
+              tag="span"
+              text={tt.headlineMain}
+              style={{ whiteSpace: "pre-line", verticalAlign: "bottom" }}
+            />
             <SplitText
               tag="span"
               text={tt.headlineAsterisk}

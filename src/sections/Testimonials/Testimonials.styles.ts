@@ -6,7 +6,7 @@ type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "144px 4px 0",
+  padding: "144px 0 0",
 };
 
 export const card: S = {

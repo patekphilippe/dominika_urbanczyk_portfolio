@@ -39,20 +39,39 @@ export const pl: Messages = {
   theHow: {
     eyebrow: "My role",
     headline: "The how.",
-    expanded: {
-      id: "01",
-      title: "Leadership",
-      lead: "Weszłam w środowisko bez ustrukturyzowanego procesu, decyzje zmieniały się z dnia na dzień. Moim zadaniem było dać zespołowi stabilność i kierunek.",
-      bullets: [
-        "Koordynowanie pracy projektowej w środowisku wielu równoległych inicjatyw — priorytetyzacja zadań przy ograniczonych możliwościach modyfikacji siatek projektowych.",
-        "Rekrutacja i wdrażanie nowych projektantów — od procesu rekrutacyjnego, przez onboarding, po wsparcie w codziennej pracy.",
-      ],
-      focusLabel: "Focus",
-      tags: ["Zespół 10+", "Rekrutacja", "Onboarding", "Priorytetyzacja", "Koordynacja"],
-    },
-    collapsed: [
-      { id: "02", title: "Product & Design" },
-      { id: "03", title: "Stakeholder collaboration & Design operations" },
+    focusLabel: "Focus",
+    items: [
+      {
+        id: "01",
+        title: "Leadership",
+        lead: "Weszłam w środowisko bez ustrukturyzowanego procesu, decyzje zmieniały się z dnia na dzień. Moim zadaniem było dać zespołowi stabilność i kierunek.",
+        bullets: [
+          "Koordynowanie pracy projektowej w środowisku wielu równoległych inicjatyw — priorytetyzacja zadań przy ograniczonych możliwościach modyfikacji siatek projektowych.",
+          "Rekrutacja i wdrażanie nowych projektantów — od procesu rekrutacyjnego, przez onboarding, po wsparcie w codziennej pracy.",
+        ],
+        tags: ["Zespół 10+", "Rekrutacja", "Onboarding", "Priorytetyzacja", "Koordynacja"],
+      },
+      {
+        id: "02",
+        title: "Product & Design",
+        lead: "Nowa platforma VOD, mundial, serwisy sportowe — wszystko naraz, na wielu platformach jednocześnie. Koordynowałam design przy kluczowych produktach cyfrowych TVP.",
+        bullets: [
+          "TVP VOD na 5 platform (web, iOS, Android, Smart TV, HbbTV) — od warsztatów i spotkań z biznesem po delivery w ~4 miesiące.",
+          "Projekty UX dla serwisów specjalnych — Mundial 2022, Euro, koncepcja TVP Sport, w tym warsztaty discovery.",
+        ],
+        tags: ["TVP VOD", "Mundial 2022", "TVP SPORT", "Discovery"],
+      },
+      {
+        id: "03",
+        title: "Stakeholder collaboration & Design operations",
+        lead: "Zastany sposób pracy: „zrób coś, to pogadamy”. Moim celem było zbudować most między biznesem, produktem a zespołem UX.",
+        bullets: [
+          "Wspieranie PO w modelowaniu i weryfikacji wymagań — żeby zespół UX miał solidne podstawy do pracy.",
+          "Cotygodniowe spotkania edukacyjne prowadzone przez UX designerów dla PO — heurystyki, prawa UX, design systemy, budowa produktów cyfrowych.",
+          "Rola łącznika między PO, devami, biznesem i dyrektorami jednostek — nadzór nad jakością wymagań.",
+        ],
+        tags: ["Edukacja PO", "Wymagania produktowe", "Procesy", "Cross-functional"],
+      },
     ],
   },
   loconiIntro: {
@@ -111,7 +130,7 @@ export const pl: Messages = {
   },
   testimonials: {
     eyebrow: "Proof",
-    headlineMain: "Not my words.",
+    headlineMain: "Not my\nwords.",
     headlineAsterisk: "*",
     asideAsterisk: "*",
     asideText: " theirs",

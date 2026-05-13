@@ -168,12 +168,12 @@ class ImageTrailVariant1 {
       .to(
         img.DOM.el,
         {
-          duration: 0.4,
+          duration: 1,
           ease: "power3",
           opacity: 0,
           scale: 0.2,
         },
-        0.4,
+        1.2,
       );
   }
 
