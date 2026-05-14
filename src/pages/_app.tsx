@@ -5,11 +5,17 @@ import Head from "next/head";
 import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LocomotiveScroll from "locomotive-scroll";
 import GradualBlur from "@/components/GradualBlur";
 import IntroScreen from "@/components/IntroScreen";
 import { LocaleProvider } from "@/i18n";
 import theme from "@/theme/theme";
 import "@/styles/globals.scss";
+import "locomotive-scroll/dist/locomotive-scroll.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -24,6 +30,26 @@ export default function App(props: AppProps) {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "auto";
     }
+  }, []);
+
+  useEffect(() => {
+    const locomotive = new LocomotiveScroll({
+      lenisOptions: {
+        smoothWheel: true,
+        lerp: 0.08,
+      },
+      scrollCallback: () => ScrollTrigger.update(),
+      autoStart: true,
+    });
+
+    const onRefresh = () => locomotive.resize();
+    ScrollTrigger.addEventListener("refresh", onRefresh);
+    ScrollTrigger.refresh();
+
+    return () => {
+      ScrollTrigger.removeEventListener("refresh", onRefresh);
+      locomotive.destroy();
+    };
   }, []);
 
   return (
