@@ -15,13 +15,11 @@ export const sectionRootFlush: S = {
 };
 
 export const innerContent: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
 };
 
 export const gridRow: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
   display: "grid",
   gridTemplateColumns: `${layout.colNarrow} ${layout.colWide} 1fr`,
   gap: space[4],

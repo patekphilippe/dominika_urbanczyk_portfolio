@@ -10,8 +10,7 @@ export const section: S = {
 };
 
 export const inner: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
 };
 
 export const stats: S = {

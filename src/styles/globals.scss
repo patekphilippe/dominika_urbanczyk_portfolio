@@ -22,9 +22,13 @@ html {
 }
 
 body {
-  width: 90rem;
   min-width: 90rem;
-  margin: 0 auto;
+}
+
+main,
+footer {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 a {

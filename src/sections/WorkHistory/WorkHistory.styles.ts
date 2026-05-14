@@ -13,8 +13,7 @@ export const section: S = {
 };
 
 export const row: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
   display: "grid",
   gridTemplateColumns: `${layout.colNarrow} ${layout.colWide} ${layout.colNarrow}`,
   gap: space[4],

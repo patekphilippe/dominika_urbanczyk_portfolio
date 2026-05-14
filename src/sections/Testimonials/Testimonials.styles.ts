@@ -19,8 +19,7 @@ export const card: S = {
 };
 
 export const top: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
   display: "grid",
   gridTemplateColumns: `${layout.colNarrow} ${layout.colWide} 1fr`,
   gap: space[4],
@@ -48,8 +47,7 @@ export const asteriskAside: S = {
 };
 
 export const grid: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
   display: "grid",
   gridTemplateColumns: `repeat(4, ${layout.colNarrow})`,
   gap: space[4],

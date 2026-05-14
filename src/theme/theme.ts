@@ -47,9 +47,11 @@ const theme = createTheme({
           textRendering: "optimizeLegibility",
         },
         body: {
-          width: "90rem",
           minWidth: "90rem",
-          margin: "0 auto",
+        },
+        "main, footer": {
+          paddingLeft: "0.25rem",
+          paddingRight: "0.25rem",
         },
         a: { color: "inherit", textDecoration: "none" },
         "img, svg": { display: "block", maxWidth: "100%" },

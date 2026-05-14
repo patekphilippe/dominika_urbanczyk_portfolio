@@ -11,9 +11,8 @@ export const section: S = {
 
 export const inner: S = {
   position: "relative",
-  width: layout.contentMax,
+  width: "100%",
   height: rem(900),
-  margin: "0 auto",
   display: "grid",
   gridTemplateColumns: `repeat(4, ${layout.colNarrow})`,
   gap: space[4],

@@ -20,8 +20,7 @@ export const card: S = {
 };
 
 export const top: S = {
-  width: layout.contentMax,
-  margin: "0 auto",
+  width: "100%",
   display: "grid",
   gridTemplateColumns: `${layout.colNarrow} ${layout.colWide} 1fr`,
   gap: space[4],
@@ -33,8 +32,7 @@ export const headline: S = {
 };
 
 export const list: S = {
-  width: layout.accordionList,
-  margin: "0 auto",
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   gap: space[32],

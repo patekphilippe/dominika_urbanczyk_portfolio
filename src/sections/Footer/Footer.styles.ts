@@ -28,7 +28,7 @@ export const top: S = {
 };
 
 export const links: S = {
-  width: layout.contentMax,
+  width: "100%",
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
   gap: space[4],
