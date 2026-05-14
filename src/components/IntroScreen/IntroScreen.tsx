@@ -7,6 +7,7 @@ import * as s from "./IntroScreen.styles";
 export default function IntroScreen() {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const [hidden, setHidden] = useState(false);
+  const [fontsReady, setFontsReady] = useState(false);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -14,6 +15,15 @@ export default function IntroScreen() {
     return () => {
       document.body.style.overflow = prev;
     };
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (document.fonts.status === "loaded") {
+      setFontsReady(true);
+    } else {
+      document.fonts.ready.then(() => setFontsReady(true));
+    }
   }, []);
 
   const handleComplete = () => {
@@ -36,20 +46,21 @@ export default function IntroScreen() {
 
   return (
     <Box ref={wrapRef} sx={s.wrap}>
-      <SplitText
-        text="dominika urbańczyk."
-        tag="h1"
-        splitType="chars"
-        delay={70}
-        duration={0.2}
-        from={{ opacity: 0, y: 140 }}
-        to={{ opacity: 1, y: 0 }}
-        threshold={0}
-        rootMargin="0px"
-        waitForIntro={false}
-        onLetterAnimationComplete={handleComplete}
-        style={s.logo}
-      />
+      {fontsReady && (
+        <SplitText
+          text="dominika urbańczyk."
+          tag="h1"
+          splitType="chars"
+          delay={70}
+          duration={0.2}
+          from={{ opacity: 0, y: 140 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0}
+          rootMargin="0px"
+          onLetterAnimationComplete={handleComplete}
+          style={s.logo}
+        />
+      )}
     </Box>
   );
 }

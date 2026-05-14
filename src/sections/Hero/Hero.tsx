@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import SplitText from "@/components/SplitText";
 import { useT } from "@/i18n";
 import * as s from "./Hero.styles";
 
@@ -22,11 +21,9 @@ export default function Hero() {
                 </Box>
               ))}
             </Box>
-            <SplitText
-              tag="h1"
-              text={t.hero.headline}
-              style={s.headline as React.CSSProperties}
-            />
+            <Box component="h1" sx={s.headline}>
+              {t.hero.headline}
+            </Box>
           </Box>
           <Box sx={s.bottom}>
             <Box sx={s.status}>

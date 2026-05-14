@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -18,6 +19,14 @@ const inter = Inter({
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <AppCacheProvider {...props}>
       <Head>

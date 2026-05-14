@@ -23,10 +23,8 @@ export const pl: Messages = {
       eyebrow: "UX Design Lead",
       company: "Telewizja Polska S.A.",
       period: "2021–current",
-      lead:
-        "Jedna z największych organizacji medialnych w Polsce. Zmieniające się priorytety, wielu interesariuszy, zero stabilnego procesu. Weszłam jako designer, po roku prowadziłam zespół — balansując między biznesem, użytkownikami i tym, co da się dowieźć.",
-      note:
-        "W ciągu 3 lat zespół wspierał rozwój szerokiego portfolio produktów cyfrowych — od platformy VOD, przez serwisy sportowe, po nowe koncepcje produktowe.",
+      lead: "Jedna z największych organizacji medialnych w Polsce. Zmieniające się priorytety, wielu interesariuszy, zero stabilnego procesu. Weszłam jako designer, po roku prowadziłam zespół — balansując między biznesem, użytkownikami i tym, co da się dowieźć.",
+      note: "W ciągu 3 lat zespół wspierał rozwój szerokiego portfolio produktów cyfrowych — od platformy VOD, przez serwisy sportowe, po nowe koncepcje produktowe.",
     },
   },
   showreel: {
@@ -49,7 +47,13 @@ export const pl: Messages = {
           "Koordynowanie pracy projektowej w środowisku wielu równoległych inicjatyw — priorytetyzacja zadań przy ograniczonych możliwościach modyfikacji siatek projektowych.",
           "Rekrutacja i wdrażanie nowych projektantów — od procesu rekrutacyjnego, przez onboarding, po wsparcie w codziennej pracy.",
         ],
-        tags: ["Zespół 10+", "Rekrutacja", "Onboarding", "Priorytetyzacja", "Koordynacja"],
+        tags: [
+          "Zespół 10+",
+          "Rekrutacja",
+          "Onboarding",
+          "Priorytetyzacja",
+          "Koordynacja",
+        ],
       },
       {
         id: "02",
@@ -70,7 +74,12 @@ export const pl: Messages = {
           "Cotygodniowe spotkania edukacyjne prowadzone przez UX designerów dla PO — heurystyki, prawa UX, design systemy, budowa produktów cyfrowych.",
           "Rola łącznika między PO, devami, biznesem i dyrektorami jednostek — nadzór nad jakością wymagań.",
         ],
-        tags: ["Edukacja PO", "Wymagania produktowe", "Procesy", "Cross-functional"],
+        tags: [
+          "Edukacja PO",
+          "Wymagania produktowe",
+          "Procesy",
+          "Cross-functional",
+        ],
       },
     ],
   },
@@ -91,8 +100,8 @@ export const pl: Messages = {
     intro:
       "Redesign systemu operacyjnego firmy spedycyjnej. Od ankiety z 53 użytkownikami po wdrożenie na produkcję.",
     stats: [
-      { value: "40%", label: "szybciej zakładanie zlecenia" },
-      { value: "50%", label: "redukcja kroków w procesie faktur" },
+      { value: "40", label: "szybciej zakładanie zlecenia" },
+      { value: "50", label: "redukcja kroków w procesie faktur" },
     ],
     quote:
       "“...wyszło nam, że 40% szybciej zakłada się spedytorowi zlecenia w nowym SO 2.0 vs SO 1.0. Brawo My...”",
@@ -136,7 +145,8 @@ export const pl: Messages = {
     asideText: " theirs",
     score: {
       labels: ["Wiedza trenera", "Kontakt z grupą"],
-      ratingQuestion: "*What would you suggest the trainer\ncould do to improve this?",
+      ratingQuestion:
+        "*What would you suggest the trainer\ncould do to improve this?",
       quote: "“Nie mam żadnych uwag do trenera, było rewelacyjnie...”",
       author: "Uczestnik szkolenia — NobleProg",
       source: "*Oceny i komentarz z ankiet ewaluacyjnych",
@@ -144,7 +154,8 @@ export const pl: Messages = {
     studentCircle: {
       quote:
         "“...było ekstra! Przez trzy godziny zrealizowaliśmy cały 5-etapowy proces, poznane techniki, narzędzia, umiejętności — persony, mapy empatii, value proposition canvas. Bardzo dziękujemy za ten cudowny czas...”",
-      source: "Koło Naukowe UX i Architektury Informacji — Uniwersytet Warszawski",
+      source:
+        "Koło Naukowe UX i Architektury Informacji — Uniwersytet Warszawski",
     },
     linkedinBig: {
       quote:
