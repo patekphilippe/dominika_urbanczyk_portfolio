@@ -22,9 +22,8 @@ export default function App(props: AppProps) {
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
+      window.history.scrollRestoration = "auto";
     }
-    window.scrollTo(0, 0);
   }, []);
 
   return (
