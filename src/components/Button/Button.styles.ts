@@ -1,16 +1,16 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, stroke, type } from "@/theme/tokens";
+import { colors, radius, rem, space, stroke, type } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const btnBase: S = {
   display: "inline-flex",
   alignItems: "center",
-  gap: "8px",
-  height: 48,
-  padding: "0 20px",
-  borderRadius: 999,
+  gap: space[8],
+  height: rem(48),
+  padding: `0 ${space[20]}`,
+  borderRadius: radius.full,
   textTransform: "none",
   ...type.labelLarge,
   transition: "background 120ms ease, color 120ms ease",

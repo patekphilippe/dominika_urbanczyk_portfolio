@@ -1,21 +1,21 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, fontFamily, layout, type } from "@/theme/tokens";
+import { colors, fontFamily, layout, radius, rem, space, type } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "144px 32px 0",
+  padding: `${space[144]} ${space[32]} 0`,
 };
 
 export const top: S = {
-  width: `${layout.contentMax}px`,
+  width: layout.contentMax,
   margin: "0 auto",
   display: "grid",
-  gridTemplateColumns: `${layout.colNarrow}px ${layout.colWide}px 1fr`,
-  gap: "4px",
-  marginBottom: "96px",
+  gridTemplateColumns: `${layout.colNarrow} ${layout.colWide} 1fr`,
+  gap: space[4],
+  marginBottom: space[96],
 };
 
 export const lead: S = {
@@ -24,38 +24,36 @@ export const lead: S = {
 };
 
 export const body: S = {
-  width: `${layout.contentMax}px`,
+  width: layout.contentMax,
   margin: "0 auto",
 };
 
 export const intro: S = {
+  ...type.bodyLarge,
   fontFamily: fontFamily.roboto,
-  fontSize: "16px",
-  lineHeight: "24px",
-  letterSpacing: "0.5px",
   color: colors.onLightSecondary,
-  width: `${layout.colWide}px`,
-  marginLeft: `${layout.colNarrow + 4}px`,
-  marginBottom: "64px",
+  width: layout.colWide,
+  marginLeft: `calc(${layout.colNarrow} + ${space[4]})`,
+  marginBottom: space[64],
 };
 
 export const cards: S = {
   display: "grid",
-  gridTemplateColumns: `repeat(4, ${layout.colNarrow}px)`,
-  gap: "4px",
+  gridTemplateColumns: `repeat(4, ${layout.colNarrow})`,
+  gap: space[4],
 };
 
 export const card: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "4px",
-  height: 463,
+  gap: space[4],
+  height: rem(463),
 };
 
 export const cardHeader: S = {
   background: colors.lightSurface,
-  borderRadius: "20px",
-  padding: "24px 32px",
+  borderRadius: radius.lg,
+  padding: `${space[24]} ${space[32]}`,
 };
 
 export const cardTitle: S = {
@@ -68,12 +66,12 @@ export const cardTitle: S = {
 export const cardBody: S = {
   flex: 1,
   background: colors.lightSurface,
-  borderRadius: "16px",
-  padding: "32px",
+  borderRadius: radius.sm,
+  padding: space[32],
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  gap: "32px",
+  gap: space[32],
 };
 
 export const cardText: S = {
@@ -85,14 +83,14 @@ export const cardText: S = {
 export const logos: S = {
   display: "flex",
   flexWrap: "wrap",
-  gap: "8px",
+  gap: space[8],
   alignItems: "center",
   justifyContent: "space-between",
 };
 
 export const logo: S = {
-  width: "75.33px",
-  height: "31.53px",
+  width: rem(75.33),
+  height: rem(31.53),
   display: "block",
   backgroundSize: "contain",
   backgroundPosition: "center",

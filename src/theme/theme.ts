@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { colors, fontFamily } from "./tokens";
+import { colors, fontFamily, fontWeight, type } from "./tokens";
 
 const theme = createTheme({
   palette: {
@@ -11,9 +11,26 @@ const theme = createTheme({
       secondary: colors.onLightSecondary,
       disabled: colors.onLightQuaternary,
     },
+    divider: colors.onDarkTertiary,
   },
   typography: {
     fontFamily: fontFamily.sans,
+    fontWeightRegular: fontWeight.regular,
+    fontWeightMedium: fontWeight.medium,
+    fontWeightBold: fontWeight.semibold,
+    h1: type.hero,
+    h2: type.displayLarge,
+    h3: type.headlineLarge,
+    h4: type.headlineMediumEmph,
+    h5: type.headlineSmallEmph,
+    h6: type.titleLarge,
+    subtitle1: type.titleMediumEmph,
+    subtitle2: type.titleSmall,
+    body1: type.bodyLarge,
+    body2: type.bodyMedium,
+    caption: type.bodySmall,
+    overline: type.labelSmall,
+    button: { ...type.labelLarge, textTransform: "none" },
   },
   shape: { borderRadius: 18 },
   components: {
@@ -29,7 +46,11 @@ const theme = createTheme({
           MozOsxFontSmoothing: "grayscale",
           textRendering: "optimizeLegibility",
         },
-        body: { minWidth: 1440 },
+        body: {
+          width: "90rem",
+          minWidth: "90rem",
+          margin: "0 auto",
+        },
         a: { color: "inherit", textDecoration: "none" },
         "img, svg": { display: "block", maxWidth: "100%" },
         button: {

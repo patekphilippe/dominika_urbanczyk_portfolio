@@ -1,3 +1,7 @@
+// All length tokens are emitted in `rem` (1rem = 16px).
+export const rem = (px: number): string => `${px / 16}rem`;
+
+// ─── Colors ─────────────────────────────────────────────────────────────────
 export const colors = {
   accent: "#d2ff37",
 
@@ -24,35 +28,98 @@ export const colors = {
   iconScore: "#fb9826",
 } as const;
 
-export const layout = {
-  canvasWidth: 1440,
-  contentMax: 1376,
-  gutter: 32,
-  colNarrow: 341,
-  colWide: 686,
-  colText: 686,
+// ─── Spacing scale ──────────────────────────────────────────────────────────
+// Keys reflect the original px values from the design system; values are rem.
+export const space = {
+  0: "0",
+  1: rem(1),
+  2: rem(2),
+  4: rem(4),
+  6: rem(6),
+  8: rem(8),
+  10: rem(10),
+  12: rem(12),
+  16: rem(16),
+  19: rem(19),
+  20: rem(20),
+  22: rem(22),
+  24: rem(24),
+  28: rem(28),
+  32: rem(32),
+  36: rem(36),
+  40: rem(40),
+  42: rem(42),
+  48: rem(48),
+  56: rem(56),
+  64: rem(64),
+  80: rem(80),
+  96: rem(96),
+  100: rem(100),
+  120: rem(120),
+  144: rem(144),
+  145: rem(145),
+  200: rem(200),
+  257: rem(257),
 } as const;
 
+// ─── Radius ─────────────────────────────────────────────────────────────────
 export const radius = {
-  xl: 28,
+  none: "0",
+  sm: rem(16),
+  md: rem(18),
+  lg: rem(20),
+  xl: rem(28),
+  pill: rem(100),
+  full: rem(999),
 } as const;
 
+// ─── Stroke ─────────────────────────────────────────────────────────────────
 export const stroke = {
-  s1: "1px",
+  s1: rem(1),
+  s2: rem(2),
 } as const;
 
-export const fontWeight = {
-  regular: 400,
-  medium: 500,
-  semibold: 600,
+// ─── Layout ─────────────────────────────────────────────────────────────────
+// All widths/gutters in rem. Use directly (no `px` suffix needed).
+export const layout = {
+  canvasWidth: rem(1440),
+  contentMax: rem(1376),
+  contentMaxFlush: rem(1432),
+  accordionList: rem(1368),
+  gutter: rem(32),
+  gutterSmall: rem(4),
+  bentoGutter: rem(36),
+  colNarrow: rem(341),
+  colWide: rem(686),
+  colText: rem(686),
+  closingTextCol: rem(785),
+  rowGap: rem(4),
+  tagsCol: rem(336),
 } as const;
 
+// ─── Z-index ────────────────────────────────────────────────────────────────
+export const zIndex = {
+  base: 0,
+  content: 1,
+  overlay: 2,
+  header: 100,
+} as const;
+
+// ─── Font family ────────────────────────────────────────────────────────────
 export const fontFamily = {
   sans: '"Inter", system-ui, -apple-system, sans-serif',
   roboto: '"Roboto", system-ui, sans-serif',
   serif: '"Times New Roman", Times, serif',
 } as const;
 
+// ─── Font weight ────────────────────────────────────────────────────────────
+export const fontWeight = {
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+} as const;
+
+// ─── Typography tokens ──────────────────────────────────────────────────────
 type TypeToken = {
   fontSize: string;
   lineHeight: string;
@@ -61,17 +128,19 @@ type TypeToken = {
   fontFamily: string;
 };
 
+// `t(sizePx, lineHeightPx, letterSpacingPx, weight)` — emits rem-based values.
 const t = (
   size: number,
   lh: number | string,
   ls: number | string,
-  fw: number
+  fw: number,
+  family: string = fontFamily.sans,
 ): TypeToken => ({
-  fontSize: `${size}px`,
-  lineHeight: typeof lh === "number" ? `${lh}px` : lh,
-  letterSpacing: typeof ls === "number" ? `${ls}px` : ls,
+  fontSize: rem(size),
+  lineHeight: typeof lh === "number" ? rem(lh) : lh,
+  letterSpacing: typeof ls === "number" ? rem(ls) : ls,
   fontWeight: fw,
-  fontFamily: fontFamily.sans,
+  fontFamily: family,
 });
 
 export const type = {
@@ -95,5 +164,7 @@ export const type = {
   labelLarge: t(14, 20, 0.1, fontWeight.medium),
   labelMedium: t(12, 16, 0.5, fontWeight.medium),
   labelSmall: t(11, 16, 0.5, fontWeight.medium),
+  // Dedicated tokens
+  theHowTitle: t(28, 36, 0, fontWeight.semibold),
   hero: t(104, 100, -5, fontWeight.semibold),
 } as const;

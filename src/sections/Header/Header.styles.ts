@@ -1,13 +1,13 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, stroke, type } from "@/theme/tokens";
+import { colors, radius, rem, space, stroke, type, zIndex } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const header: S = {
   position: "sticky",
   top: 0,
-  zIndex: 100,
+  zIndex: zIndex.header,
   width: "100%",
   background: "rgba(246, 246, 246, 0.85)",
   backdropFilter: "blur(3.5px)",
@@ -15,8 +15,8 @@ export const header: S = {
 };
 
 export const inner: S = {
-  height: 86,
-  padding: "19px 32px",
+  height: rem(86),
+  padding: `${space[19]} ${space[32]}`,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -24,8 +24,8 @@ export const inner: S = {
 
 export const logo: S = {
   display: "inline-block",
-  height: "21.648px",
-  width: "112.63px",
+  height: rem(21.648),
+  width: rem(112.63),
   color: colors.onLightPrimary,
   backgroundImage: "url(/images/logo.svg)",
   backgroundSize: "contain",
@@ -36,7 +36,7 @@ export const logo: S = {
 export const nav: S = {
   display: "flex",
   alignItems: "center",
-  gap: "32px",
+  gap: space[32],
 };
 
 export const navItem: S = {
@@ -51,10 +51,10 @@ export const cta: S = {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  height: 40,
-  padding: "10px 16px",
+  height: rem(40),
+  padding: `${space[10]} ${space[16]}`,
   border: `${stroke.s1} solid ${colors.onDarkTertiary}`,
-  borderRadius: "100px",
+  borderRadius: radius.pill,
   ...type.labelLarge,
   color: colors.onLightPrimary,
   textDecoration: "none",

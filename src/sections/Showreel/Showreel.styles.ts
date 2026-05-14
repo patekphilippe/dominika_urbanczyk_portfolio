@@ -1,32 +1,32 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, layout, radius, type } from "@/theme/tokens";
+import { colors, layout, radius, rem, space, type } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "144px 32px 0",
+  padding: `${space[144]} ${space[32]} 0`,
 };
 
 export const inner: S = {
-  width: `${layout.contentMax}px`,
+  width: layout.contentMax,
   margin: "0 auto",
 };
 
 export const stats: S = {
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "4px",
-  marginBottom: "4px",
+  gap: space[4],
+  marginBottom: space[4],
 };
 
 export const card: S = {
   position: "relative",
-  height: 156,
+  height: rem(156),
   background: colors.lightSurface,
-  borderRadius: "20px",
-  padding: "24px 32px",
+  borderRadius: radius.lg,
+  padding: `${space[24]} ${space[32]}`,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-start",
@@ -70,10 +70,17 @@ export const idx: S = {
 export const imageWrap: S = {
   width: "100%",
   aspectRatio: "1376 / 849",
-  borderRadius: `${radius.xl}px`,
+  borderRadius: radius.xl,
   overflow: "hidden",
   backgroundImage: "url(/images/showreel.jpg)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
+};
+
+export const image: S = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  display: "block",
 };

@@ -1,28 +1,28 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, fontFamily, layout, type } from "@/theme/tokens";
+import { colors, fontFamily, layout, space, type } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "144px 32px 0",
+  padding: `${space[144]} ${space[32]} 0`,
 };
 
 export const row: S = {
-  width: `${layout.contentMax}px`,
+  width: layout.contentMax,
   margin: "0 auto",
   display: "grid",
-  gridTemplateColumns: `${layout.colNarrow}px ${layout.colWide}px 1fr`,
-  gap: "4px",
+  gridTemplateColumns: `${layout.colNarrow} ${layout.colWide} 1fr`,
+  gap: space[4],
   alignItems: "start",
 };
 
 export const body: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "32px",
-  width: `${layout.colWide}px`,
+  gap: space[32],
+  width: layout.colWide,
 };
 
 export const lead: S = {
@@ -31,9 +31,7 @@ export const lead: S = {
 };
 
 export const note: S = {
+  ...type.bodyLarge,
   fontFamily: fontFamily.roboto,
-  fontSize: "16px",
-  lineHeight: "24px",
-  letterSpacing: "0.5px",
   color: colors.onLightSecondary,
 };

@@ -22,7 +22,9 @@ html {
 }
 
 body {
-  min-width: t.$canvas-width;
+  width: 90rem;
+  min-width: 90rem;
+  margin: 0 auto;
 }
 
 a {

@@ -1,28 +1,28 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, fontFamily, stroke, type } from "@/theme/tokens";
+import { colors, fontFamily, radius, rem, space, stroke, type, zIndex } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "144px 36px 0",
+  padding: `${space[144]} ${space[36]} 0`,
 };
 
 export const grid: S = {
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
-  gap: "4px",
-  height: 600,
-  width: 1368,
+  gap: space[4],
+  height: rem(600),
+  width: rem(1368),
   margin: "0 auto",
 };
 
 export const left: S = {
   position: "relative",
-  borderRadius: "18px",
+  borderRadius: radius.md,
   overflow: "hidden",
-  padding: "48px",
+  padding: space[48],
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -33,7 +33,7 @@ export const bg: S = {
   inset: 0,
   width: "100%",
   height: "100%",
-  zIndex: 0,
+  zIndex: zIndex.base,
   backgroundImage: "url(/images/bento-loconi.jpg)",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -44,12 +44,12 @@ export const overlay: S = {
   position: "absolute",
   inset: 0,
   background: "rgba(0, 0, 0, 0.37)",
-  zIndex: 1,
+  zIndex: zIndex.content,
 };
 
 export const leftContent: S = {
   position: "relative",
-  zIndex: 2,
+  zIndex: zIndex.overlay,
   height: "100%",
   display: "flex",
   flexDirection: "column",
@@ -59,7 +59,7 @@ export const leftContent: S = {
 export const metaTop: S = {
   display: "flex",
   justifyContent: "space-between",
-  gap: "32px",
+  gap: space[32],
 };
 
 export const tagLabel: S = {
@@ -70,7 +70,7 @@ export const tagLabel: S = {
 export const tagDetail: S = {
   ...type.labelMedium,
   color: colors.onDarkSecondary,
-  marginTop: "4px",
+  marginTop: space[4],
 };
 
 export const role: S = {
@@ -85,7 +85,7 @@ export const roleLabel: S = {
 export const roleValue: S = {
   ...type.titleMediumEmph,
   color: colors.onDarkPrimary,
-  marginTop: "4px",
+  marginTop: space[4],
 };
 
 export const title: S = {
@@ -102,10 +102,10 @@ export const bottom: S = {
 export const cta: S = {
   display: "inline-flex",
   alignItems: "center",
-  height: 48,
-  padding: "10px 16px",
+  height: rem(48),
+  padding: `${space[10]} ${space[16]}`,
   border: `${stroke.s1} solid ${colors.darkOutline}`,
-  borderRadius: "100px",
+  borderRadius: radius.pill,
   textDecoration: "none",
   ...type.labelLarge,
   color: colors.onDarkPrimary,
@@ -119,8 +119,8 @@ export const year: S = {
 
 export const right: S = {
   background: colors.lightSurface,
-  borderRadius: "18px",
-  padding: "48px",
+  borderRadius: radius.md,
+  padding: space[48],
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -134,13 +134,13 @@ export const intro: S = {
 export const stats: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "24px",
+  gap: space[24],
 };
 
 export const stat: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "4px",
+  gap: space[4],
 };
 
 export const statValue: S = {
@@ -156,7 +156,7 @@ export const statLabel: S = {
 export const quoteBlock: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "12px",
+  gap: space[12],
 };
 
 export const quote: S = {
@@ -166,8 +166,8 @@ export const quote: S = {
 
 export const author: S = {
   fontFamily: fontFamily.roboto,
-  fontSize: "12px",
-  lineHeight: "16px",
-  letterSpacing: "0.5px",
+  fontSize: rem(12),
+  lineHeight: rem(16),
+  letterSpacing: rem(0.5),
   color: colors.onLightTertiary,
 };

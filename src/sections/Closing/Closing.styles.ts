@@ -1,27 +1,27 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, layout, type } from "@/theme/tokens";
+import { colors, layout, space, type } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const section: S = {
   background: colors.pageBg,
-  padding: "257px 32px",
+  padding: `${space[257]} ${space[32]}`,
 };
 
 export const row: S = {
-  width: `${layout.contentMax}px`,
+  width: layout.contentMax,
   margin: "0 auto",
   display: "grid",
-  gridTemplateColumns: `${layout.colNarrow}px 785px 1fr`,
-  gap: "4px",
+  gridTemplateColumns: `${layout.colNarrow} ${layout.closingTextCol} 1fr`,
+  gap: space[4],
   alignItems: "start",
 };
 
 export const text: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "4px",
+  gap: space[4],
 };
 
 export const line: S = {

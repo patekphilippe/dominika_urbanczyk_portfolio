@@ -1,14 +1,14 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, layout, type } from "@/theme/tokens";
+import { colors, layout, space, type } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
 export const titleRoot: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "16px",
-  width: `${layout.colNarrow}px`,
+  gap: space[16],
+  width: layout.colNarrow,
 };
 
 export const label: S = {

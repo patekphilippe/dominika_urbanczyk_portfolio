@@ -1,6 +1,6 @@
 import type { Theme } from "@mui/material/styles";
 import type { SystemStyleObject } from "@mui/system";
-import { colors, fontFamily, fontWeight, layout, type } from "@/theme/tokens";
+import { colors, fontFamily, fontWeight, layout, rem, space, stroke, type, zIndex } from "@/theme/tokens";
 
 type S = SystemStyleObject<Theme>;
 
@@ -13,37 +13,37 @@ export const footer: S = {
 
 export const contentWrap: S = {
   position: "relative",
-  zIndex: 1,
+  zIndex: zIndex.content,
 };
 
 export const contentInner: S = {
   position: "relative",
-  zIndex: 1,
+  zIndex: zIndex.content,
 };
 
 export const top: S = {
-  padding: "100px 32px 200px",
+  padding: `${space[100]} ${space[32]} ${space[200]}`,
   display: "flex",
   justifyContent: "center",
 };
 
 export const links: S = {
-  width: `${layout.contentMax}px`,
+  width: layout.contentMax,
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
-  gap: "4px",
+  gap: space[4],
 };
 
 export const col1: S = {
-  paddingRight: "80px",
+  paddingRight: space[80],
 };
 
 export const email: S = {
   display: "inline-block",
   ...type.headlineLarge,
   color: colors.onLightPrimary,
-  borderBottom: `2px solid ${colors.onLightPrimary}`,
-  paddingBottom: "6px",
+  borderBottom: `${stroke.s2} solid ${colors.onLightPrimary}`,
+  paddingBottom: space[6],
   textDecoration: "none",
   "&:hover": { color: colors.onLightSecondary },
 };
@@ -51,19 +51,19 @@ export const email: S = {
 export const col2: S = {
   display: "flex",
   flexDirection: "column",
-  gap: "96px",
+  gap: space[96],
   justifyContent: "center",
 };
 
 export const linkedin: S = {
   display: "inline-flex",
   alignItems: "center",
-  gap: "4px",
+  gap: space[4],
   fontFamily: fontFamily.sans,
-  fontSize: "22px",
+  fontSize: rem(22),
   fontWeight: fontWeight.medium,
-  letterSpacing: "-0.88px",
-  lineHeight: "26.4px",
+  letterSpacing: rem(-0.88),
+  lineHeight: rem(26.4),
   color: colors.onLightPrimary,
   alignSelf: "flex-start",
   textDecoration: "none",
@@ -73,11 +73,11 @@ export const linkedin: S = {
 export const signoff: S = {
   ...type.hero,
   color: colors.onLightPrimary,
-  width: `${layout.colWide}px`,
+  width: layout.colWide,
 };
 
 export const bottom: S = {
-  padding: "42px 36px",
+  padding: `${space[42]} ${space[36]}`,
   "& p": {
     ...type.bodyMedium,
     color: colors.onLightQuaternary,
@@ -88,6 +88,6 @@ export const bottom: S = {
 export const imageTrailWrap: S = {
   position: "absolute",
   inset: 0,
-  zIndex: 0,
+  zIndex: zIndex.base,
   pointerEvents: "none",
 };
