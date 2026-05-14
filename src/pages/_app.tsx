@@ -5,6 +5,7 @@ import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import GradualBlur from "@/components/GradualBlur";
+import IntroScreen from "@/components/IntroScreen";
 import { LocaleProvider } from "@/i18n";
 import theme from "@/theme/theme";
 import "@/styles/globals.scss";
@@ -35,6 +36,7 @@ export default function App(props: AppProps) {
             className={inter.variable}
             style={{ fontFamily: "var(--font-inter)" }}
           >
+            <IntroScreen />
             <Component {...pageProps} />
           </div>
         </LocaleProvider>

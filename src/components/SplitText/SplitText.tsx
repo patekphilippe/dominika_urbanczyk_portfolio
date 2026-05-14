@@ -21,6 +21,7 @@ export interface SplitTextProps {
   tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   textAlign?: React.CSSProperties["textAlign"];
   onLetterAnimationComplete?: () => void;
+  waitForIntro?: boolean;
 }
 
 const SplitText: React.FC<SplitTextProps> = ({
@@ -38,11 +39,17 @@ const SplitText: React.FC<SplitTextProps> = ({
   textAlign = "left",
   tag = "p",
   onLetterAnimationComplete,
+  waitForIntro = true,
 }) => {
   const ref = useRef<HTMLElement>(null);
   const animationCompletedRef = useRef(false);
   const onCompleteRef = useRef(onLetterAnimationComplete);
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [introDone, setIntroDone] = useState(() => {
+    if (!waitForIntro) return true;
+    if (typeof window === "undefined") return false;
+    return (window as Window & { __introDone?: boolean }).__introDone === true;
+  });
 
   useEffect(() => {
     onCompleteRef.current = onLetterAnimationComplete;
@@ -57,9 +64,16 @@ const SplitText: React.FC<SplitTextProps> = ({
     }
   }, []);
 
+  useEffect(() => {
+    if (!waitForIntro || introDone) return;
+    const handler = () => setIntroDone(true);
+    window.addEventListener("introdone", handler);
+    return () => window.removeEventListener("introdone", handler);
+  }, [waitForIntro, introDone]);
+
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded) return;
+      if (!ref.current || !text || !fontsLoaded || !introDone) return;
       if (animationCompletedRef.current) return;
 
       const el = ref.current as HTMLElement & {
@@ -156,6 +170,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         threshold,
         rootMargin,
         fontsLoaded,
+        introDone,
       ],
       scope: ref,
     },
