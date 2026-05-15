@@ -21,6 +21,7 @@ export interface SplitTextProps {
   tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   textAlign?: React.CSSProperties["textAlign"];
   onLetterAnimationComplete?: () => void;
+  immediate?: boolean;
 }
 
 const SplitText: React.FC<SplitTextProps> = ({
@@ -38,6 +39,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   textAlign = "left",
   tag = "p",
   onLetterAnimationComplete,
+  immediate = false,
 }) => {
   const ref = useRef<HTMLElement>(null);
   const animationCompletedRef = useRef(false);
@@ -108,29 +110,28 @@ const SplitText: React.FC<SplitTextProps> = ({
         reduceWhiteSpace: false,
         onSplit: (self: GSAPSplitText) => {
           assignTargets(self);
-          return gsap.fromTo(
-            targets,
-            { ...from },
-            {
-              ...to,
-              duration,
-              ease,
-              stagger: delay / 1000,
-              scrollTrigger: {
-                trigger: el,
-                start,
-                once: true,
-                fastScrollEnd: true,
-                anticipatePin: 0.4,
-              },
-              onComplete: () => {
-                animationCompletedRef.current = true;
-                onCompleteRef.current?.();
-              },
-              willChange: "transform, opacity",
-              force3D: true,
+          const toVars: gsap.TweenVars = {
+            ...to,
+            duration,
+            ease,
+            stagger: delay / 1000,
+            onComplete: () => {
+              animationCompletedRef.current = true;
+              onCompleteRef.current?.();
             },
-          );
+            willChange: "transform, opacity",
+            force3D: true,
+          };
+          if (!immediate) {
+            toVars.scrollTrigger = {
+              trigger: el,
+              start,
+              once: true,
+              fastScrollEnd: true,
+              anticipatePin: 0.4,
+            };
+          }
+          return gsap.fromTo(targets, { ...from }, toVars);
         },
       });
       el._rbsplitInstance = splitInstance;
@@ -158,6 +159,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         threshold,
         rootMargin,
         fontsLoaded,
+        immediate,
       ],
       scope: ref,
     },

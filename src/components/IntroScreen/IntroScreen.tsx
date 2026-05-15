@@ -14,14 +14,6 @@ export default function IntroScreen() {
   const [fontsReady, setFontsReady] = useState(false);
 
   useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, []);
-
-  useEffect(() => {
     if (typeof document === "undefined") return;
     if (document.fonts.status === "loaded") {
       setFontsReady(true);
@@ -38,7 +30,6 @@ export default function IntroScreen() {
       ease: "power3.inOut",
       delay: 0.4,
       onComplete: () => {
-        document.body.style.overflow = "";
         (window as Window & { __introDone?: boolean }).__introDone = true;
         window.dispatchEvent(new Event("introdone"));
         setHidden(true);

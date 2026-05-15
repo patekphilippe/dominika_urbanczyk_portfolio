@@ -30,6 +30,9 @@ export const bg: S = {
   backgroundSize: "cover",
   backgroundPosition: "-27vw 50%",
   backgroundRepeat: "no-repeat",
+  transform: "translateZ(0)",
+  willChange: "transform",
+  backfaceVisibility: "hidden",
 };
 
 export const content: S = {

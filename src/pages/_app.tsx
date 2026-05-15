@@ -36,7 +36,11 @@ export default function App(props: AppProps) {
     const locomotive = new LocomotiveScroll({
       lenisOptions: {
         smoothWheel: true,
-        lerp: 0.08,
+        duration: 1.0,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        syncTouch: false,
       },
       scrollCallback: () => ScrollTrigger.update(),
       autoStart: true,
