@@ -1,26 +1,35 @@
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { useT } from "@/i18n";
 import * as s from "./Header.styles";
 
 export default function Header() {
   const t = useT();
+  const handleLogoClick = () => {
+    if (typeof window === "undefined") return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <Box component="header" sx={s.header}>
       <Box sx={s.inner}>
-        <Link href="#top" aria-label="Dominika Urbańczyk — home" sx={s.logo} />
+        <Box
+          component="button"
+          type="button"
+          aria-label="Dominika Urbańczyk — home"
+          onClick={handleLogoClick}
+          sx={s.logo}
+        />
 
         <Box component="nav" sx={s.nav}>
-          <Link href="#experience" sx={s.navItem}>
+          <Box component="span" sx={s.navItem}>
             {t.header.experience}
-          </Link>
-          <Link href="#contact" sx={s.navItem}>
+          </Box>
+          <Box component="span" sx={s.navItem}>
             {t.header.contact}
-          </Link>
-          <Link href="#cv" sx={s.cta}>
+          </Box>
+          <Box component="span" sx={s.cta}>
             {t.header.getCv}
-          </Link>
+          </Box>
           <LanguageSwitch />
         </Box>
       </Box>
