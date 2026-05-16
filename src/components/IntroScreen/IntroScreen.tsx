@@ -111,7 +111,7 @@ export default function IntroScreen() {
           opacity: 0,
         }}
       >
-        dominika urbańczyk.
+        dominikaurbańczyk
       </h1>
     </Box>
   );

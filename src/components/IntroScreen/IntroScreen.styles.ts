@@ -19,8 +19,9 @@ export const logo: React.CSSProperties = {
   color: colors.onDarkPrimary,
   fontFamily: fontFamily.sans,
   fontWeight: fontWeight.semibold,
-  fontSize: rem(72),
-  letterSpacing: rem(-2.5),
-  lineHeight: 1,
+  fontSize: rem(22),
+  letterSpacing: rem(-1),
+  lineHeight: rem(28),
   margin: 0,
+  fontFeatureSettings: "'salt' 1",
 };
