@@ -46,6 +46,15 @@ export default function App(props: AppProps) {
       autoStart: true,
     });
 
+    (
+      window as Window & {
+        __locomotive?: { stop: () => void; start: () => void };
+      }
+    ).__locomotive = locomotive as unknown as {
+      stop: () => void;
+      start: () => void;
+    };
+
     const onRefresh = () => locomotive.resize();
     ScrollTrigger.addEventListener("refresh", onRefresh);
     ScrollTrigger.refresh();
@@ -53,6 +62,7 @@ export default function App(props: AppProps) {
     return () => {
       ScrollTrigger.removeEventListener("refresh", onRefresh);
       locomotive.destroy();
+      delete (window as Window & { __locomotive?: unknown }).__locomotive;
     };
   }, []);
 

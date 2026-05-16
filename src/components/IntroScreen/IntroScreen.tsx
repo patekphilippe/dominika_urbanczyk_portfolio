@@ -14,6 +14,18 @@ export default function IntroScreen() {
   const [fontsReady, setFontsReady] = useState(false);
 
   useEffect(() => {
+    const loco = (
+      window as Window & {
+        __locomotive?: { stop: () => void; start: () => void };
+      }
+    ).__locomotive;
+    loco?.stop();
+    return () => {
+      loco?.start();
+    };
+  }, []);
+
+  useEffect(() => {
     if (typeof document === "undefined") return;
     if (document.fonts.status === "loaded") {
       setFontsReady(true);

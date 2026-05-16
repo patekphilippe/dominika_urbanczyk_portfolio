@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitText from "@/components/SplitText";
 import TitleSection from "@/components/TitleSection";
 import { useT } from "@/i18n";
@@ -57,7 +58,13 @@ function AccordionItem({ item, focusLabel, isOpen, onToggle }: AccordionItemProp
         </IconButton>
       </Box>
 
-      <Collapse in={isOpen} timeout={350} unmountOnExit={false}>
+      <Collapse
+        in={isOpen}
+        timeout={350}
+        unmountOnExit={false}
+        onEntered={() => ScrollTrigger.refresh()}
+        onExited={() => ScrollTrigger.refresh()}
+      >
         <Box sx={s.itemDetails}>
           <Box sx={s.body}>
             <Typography component="p" sx={s.itemLead}>
